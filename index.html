@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Somali Independence Day</title>
+  <title>SomalinimoUK – Countdown to Independence</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -24,68 +24,85 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
       padding: 2rem;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    h2 {
+    .subheading {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 1.5rem;
       font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      font-weight: 400;
-    }
-
-    .star {
-      font-size: 4rem;
-      margin: 1rem 0;
-    }
-
-    p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      line-height: 1.6;
-    }
-
-    footer {
+      font-weight: bold;
       margin-top: 2rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
+    }
+
+    .countdown div {
+      background: var(--white);
+      color: var(--somali-blue);
+      padding: 1rem;
+      border-radius: 10px;
+      min-width: 80px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
 
     @media (max-width: 600px) {
+      .countdown {
+        flex-direction: column;
+      }
+
       h1 {
         font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.3rem;
-      }
-
-      .star {
-        font-size: 3rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="star">⭐</div>
-  <h1>Somali Independence Day</h1>
-  <h2>Celebrating 65 Years of Freedom • 28 June 2025 🇸🇴</h2>
+  <h1>SomalinimoUK</h1>
+  <div class="subheading">Celebrating 65 Years of Independence 🇸🇴</div>
 
-  <p>
-    On this day in 1960, the Somali people rose together to reclaim their dignity, their land, and their future.
-    Independence is more than a moment in history — it is the heartbeat of our resilience, our unity, and our identity.
-    Let us honour those who fought before us by building with pride and standing together in peace.
-  </p>
+  <div class="countdown" id="countdown">
+    <div><span id="days">00</span><br>Days</div>
+    <div><span id="hours">00</span><br>Hours</div>
+    <div><span id="minutes">00</span><br>Minutes</div>
+    <div><span id="seconds">00</span><br>Seconds</div>
+  </div>
 
-  <footer>
-    &copy; 2025 SomalinimoUK | United in Spirit. Stronger in Legacy.
-  </footer>
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date("June 28, 2025 00:00:00").getTime();
+      const now = new Date().getTime();
+      const gap = targetDate - now;
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      const days = Math.floor(gap / day);
+      const hours = Math.floor((gap % day) / hour);
+      const minutes = Math.floor((gap % hour) / minute);
+      const seconds = Math.floor((gap % minute) / second);
+
+      document.getElementById("days").innerText = days.toString().padStart(2, '0');
+      document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
