@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SomalinimoUK – Countdown to Independence</title>
+  <title>SomalinimoUK – 65 Years of Independence</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -19,33 +19,41 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: var(--somali-blue);
+      background: var(--somali-blue);
       color: var(--white);
-      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 100vh;
       text-align: center;
       padding: 2rem;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 0.5rem;
     }
 
     .subheading {
       font-size: 1.2rem;
       margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .paragraph {
+      max-width: 600px;
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      line-height: 1.7;
     }
 
     .countdown {
       display: flex;
-      gap: 1.5rem;
-      font-size: 1.8rem;
+      gap: 1rem;
+      font-size: 2rem;
       font-weight: bold;
-      margin-top: 2rem;
+      letter-spacing: 2px;
     }
 
     .countdown div {
@@ -53,8 +61,8 @@
       color: var(--somali-blue);
       padding: 1rem;
       border-radius: 10px;
-      min-width: 80px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      min-width: 70px;
     }
 
     @media (max-width: 600px) {
@@ -72,15 +80,19 @@
   <h1>SomalinimoUK</h1>
   <div class="subheading">Celebrating 65 Years of Independence 🇸🇴</div>
 
+  <div class="paragraph">
+    To be Somali is to carry the spirit of the nomad, the resilience of the coast, and the poetry of survival. We are the architects of rhythm, the children of Saba, the ocean-walkers, and truth tellers. 65 years since independence, we still rise — together, unshaken, unbroken, Somali forever.
+  </div>
+
   <div class="countdown" id="countdown">
-    <div><span id="days">00</span><br>Days</div>
-    <div><span id="hours">00</span><br>Hours</div>
-    <div><span id="minutes">00</span><br>Minutes</div>
-    <div><span id="seconds">00</span><br>Seconds</div>
+    <div><span id="days">00</span><br/>Days</div>
+    <div><span id="hours">00</span><br/>Hours</div>
+    <div><span id="minutes">00</span><br/>Minutes</div>
+    <div><span id="seconds">00</span><br/>Seconds</div>
   </div>
 
   <script>
-    function updateCountdown() {
+    const countdown = () => {
       const targetDate = new Date("June 28, 2025 00:00:00").getTime();
       const now = new Date().getTime();
       const gap = targetDate - now;
@@ -90,19 +102,14 @@
       const hour = minute * 60;
       const day = hour * 24;
 
-      const days = Math.floor(gap / day);
-      const hours = Math.floor((gap % day) / hour);
-      const minutes = Math.floor((gap % hour) / minute);
-      const seconds = Math.floor((gap % minute) / second);
+      document.getElementById('days').innerText = Math.floor(gap / day);
+      document.getElementById('hours').innerText = Math.floor((gap % day) / hour);
+      document.getElementById('minutes').innerText = Math.floor((gap % hour) / minute);
+      document.getElementById('seconds').innerText = Math.floor((gap % minute) / second);
+    };
 
-      document.getElementById("days").innerText = days.toString().padStart(2, '0');
-      document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-      document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-      document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    setInterval(countdown, 1000);
+    countdown();
   </script>
 </body>
 </html>
