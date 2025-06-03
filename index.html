@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SomalinimoUK: 65 Years of Independence</title>
+  <title>Somalinimo: 65 Years of Independence</title>
   <!-- Google Fonts for modern typography -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    /* Base styles */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -22,13 +21,15 @@
     h1, h2, h3, h4, p {
       margin: 0;
     }
-
-    /* Hero section */
     .hero {
-      background: linear-gradient(135deg, #3a7ec8 0%, #4189DD 100%);  /* Somali flag blue gradient */
+      background: linear-gradient(135deg, #3a7ec8 0%, #4189DD 100%);
       color: #fff;
       text-align: center;
       padding: 4em 1em;
+    }
+    .hero img.logo {
+      max-width: 120px;
+      margin-bottom: 1em;
     }
     .hero h1 {
       font-family: 'Montserrat', sans-serif;
@@ -47,7 +48,7 @@
       margin-bottom: 1em;
     }
     .time-segment {
-      white-space: nowrap;  /* keep number and label together */
+      white-space: nowrap;
     }
     .time-segment:not(:last-child) {
       margin-right: 0.5em;
@@ -56,8 +57,6 @@
       font-weight: 600;
       font-size: 1.5em;
     }
-
-    /* Button styles */
     .btn {
       display: inline-block;
       font-family: 'Montserrat', sans-serif;
@@ -78,8 +77,6 @@
       outline: none;
       box-shadow: 0 0 0 3px rgba(48, 95, 138, 0.5);
     }
-
-    /* Main content */
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -103,8 +100,6 @@
       color: #333;
       margin: 0.5em 0;
     }
-
-    /* Footer */
     footer {
       border-top: 2px solid #eee;
       background: #fff;
@@ -117,12 +112,11 @@
       font-size: 0.9em;
       color: #555;
     }
-    .logo-inline {
-      height: 1.2em;
+    .footer-content img {
+      height: 1.5em;
       vertical-align: middle;
+      margin-left: 0.3em;
     }
-
-    /* Responsive adjustments for very small screens */
     @media (max-width: 400px) {
       .hero h1 {
         font-size: 2em;
@@ -134,9 +128,9 @@
   </style>
 </head>
 <body>
-
   <header class="hero">
     <div class="container">
+      <img src="/mnt/data/NOMADIC_LIBAAX_LOGO_REDESGIN___1_-removebg-preview.png" alt="SomalinimoUK Logo" class="logo">
       <h1>Somalinimo: 65 Years of Independence</h1>
       <p class="event-details">Saturday, June 28, 2025 @ 7:00 PM &middot; Zymal's Banqueting Suite, Birmingham, UK</p>
       <div id="countdown" class="countdown">
@@ -148,27 +142,21 @@
       <a href="https://www.eventbrite.com/e/65th-somali-independance-day-event-tickets-1390744888399" class="btn tickets-btn" target="_blank" rel="noopener">Get Tickets</a>
     </div>
   </header>
-
   <main>
     <section class="about">
       <div class="container">
         <h2>About the Event</h2>
         <p>Somalinimo, meaning "the essence of being Somali," is at the heart of our community. This celebration marks 65 years since the independence of Somalia, and we invite you to join us for a night of unity, culture, and pride. Together, we will honor the journey of the Somali people and celebrate our rich heritage.</p>
         <p>Hosted by SomalinimoUK, the event features inspiring speakers and vibrant cultural performances &ndash; including traditional music and dance &ndash; along with delicious Somali cuisine. It’s a family-friendly gathering where all are welcome, Somalis and friends of Somalia alike, to share in the spirit of <em>Somalinimo</em> and the ongoing story of independence and unity.</p>
-        <!-- Additional event information (schedule, speakers, etc.) can be added here if needed -->
       </div>
     </section>
   </main>
-
   <footer>
     <div class="container footer-content">
-      <p>Brought to you by <img src="somalinimo_logo.png" alt="SomalinimoUK Logo" class="logo-inline" /> <!-- Replace with actual logo file path --></p>
-      <!-- Optional: social media links or contact info could go here -->
+      <p>Brought to you by <img src="/mnt/data/NOMADIC_LIBAAX_LOGO_REDESGIN___1_-removebg-preview.png" alt="SomalinimoUK Logo"></p>
     </div>
   </footer>
-
   <script>
-    // Countdown timer script
     (function() {
       var countdownDate = new Date("June 28, 2025 19:00:00").getTime();
       var countdownEl = document.getElementById("countdown");
@@ -197,9 +185,8 @@
       }
 
       var interval = setInterval(updateCountdown, 1000);
-      updateCountdown();  // initialize the timer display immediately
+      updateCountdown();
     })();
   </script>
-
 </body>
 </html>
