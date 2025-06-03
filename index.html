@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Countdown to 28th June 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Somalinimo - 65 Years of Independence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --blue: #07599c;
+      --blue: #418fde;
+      --white: #ffffff;
       --black: #000000;
     }
 
@@ -18,104 +19,97 @@
     }
 
     body {
-      height: 100vh;
-      background: linear-gradient(135deg, var(--black), var(--blue));
-      color: white;
-      font-family: 'Orbitron', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--blue);
+      color: var(--white);
       text-align: center;
-      overflow: hidden;
+      padding: 2rem;
     }
 
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-
-    .logo img {
-      width: 100px;
-      height: auto;
+    header {
+      margin-bottom: 2rem;
     }
 
     h1 {
       font-size: 3rem;
-      margin-bottom: 20px;
+      font-weight: 700;
     }
 
-    #countdown {
-      font-size: 2.5rem;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
-      animation: pulse 2s infinite ease-in-out;
+    .countdown {
+      font-size: 2rem;
+      margin: 2rem 0;
     }
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.2); }
-      50% { box-shadow: 0 0 60px rgba(255, 255, 255, 0.5); }
-      100% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.2); }
+    section.description {
+      background-color: var(--white);
+      color: var(--black);
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .ticket-link {
-      margin-top: 40px;
-    }
-
-    .ticket-link a {
-      background-color: white;
-      color: var(--blue);
-      padding: 12px 24px;
-      border-radius: 30px;
-      text-decoration: none;
+    .tickets-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
       font-weight: bold;
-      transition: all 0.3s ease;
+      background-color: var(--white);
+      color: var(--blue);
+      border: none;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
     }
 
-    .ticket-link a:hover {
-      background-color: var(--blue);
-      color: white;
-      box-shadow: 0 0 15px white;
+    .tickets-button:hover {
+      background-color: #e6e6e6;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Somalinimo: 65 Years of Independence</h1>
+    <div class="countdown" id="countdown"></div>
+  </header>
 
-  <div class="logo">
-    <img src="logo.png" alt="Event Logo" />
-  </div>
-
-  <h1>Countdown to Somali Independence Day</h1>
-  <div id="countdown">Loading...</div>
-
-  <div class="ticket-link">
-    <a href="#" target="_blank">Get Tickets on Eventbrite</a>
-  </div>
+  <section class="description">
+    <h2>A Celebration of Identity, Unity & Legacy</h2>
+    <p>Somalinimo isn’t just a word—it’s a pulse. A shared heartbeat connecting Somalis across oceans, generations, and borders. This event is a living tribute to who we are, where we come from, and where we’re going.</p>
+    <p>It’s a space to honour our roots, amplify our voices, and imagine the future of our people—with pride, purpose, and unity.</p>
+    <h3>What to Expect:</h3>
+    <ul style="text-align: left; max-width: 700px; margin: auto;">
+      <li><strong>Cultural Showcases:</strong> Traditional dance, poetry (gabayo), music, and storytelling</li>
+      <li><strong>Panel Discussions:</strong> Somali excellence in business, art, politics, and diaspora impact</li>
+      <li><strong>Food & Fashion:</strong> Authentic Somali cuisine and cultural clothing</li>
+      <li><strong>Youth Spotlights:</strong> Celebrating young Somali talent and future leaders</li>
+      <li><strong>Marketplace:</strong> Somali-owned brands, art, books, and crafts</li>
+    </ul>
+    <p>This is more than a celebration. It’s a reclamation of narrative, a revival of pride, and a renewal of unity. Come as you are. Leave connected.</p>
+    <a class="tickets-button" href="https://www.eventbrite.com/e/65th-somali-independance-day-event-tickets-1390744888399?aff=oddtdtcreator" target="_blank">Get Tickets</a>
+  </section>
 
   <script>
-    const countdown = () => {
-      const countDate = new Date("June 28, 2025 00:00:00").getTime();
+    // Countdown logic
+    const countdown = document.getElementById('countdown');
+    const targetDate = new Date("June 28, 2025 00:00:00").getTime();
+
+    const updateCountdown = () => {
       const now = new Date().getTime();
-      const gap = countDate - now;
+      const distance = targetDate - now;
 
-      const second = 1000;
-      const minute = second * 60;
-      const hour = minute * 60;
-      const day = hour * 24;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      const days = Math.floor(gap / day);
-      const hours = Math.floor((gap % day) / hour);
-      const minutes = Math.floor((gap % hour) / minute);
-      const seconds = Math.floor((gap % minute) / second);
-
-      document.getElementById("countdown").innerText =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     };
 
-    setInterval(countdown, 1000);
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
